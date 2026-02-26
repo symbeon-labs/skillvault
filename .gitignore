@@ -1,0 +1,31 @@
+# Secrets & Local Config
+.env
+.env.local
+.env.*.local
+*.key
+*.pem
+.vault/
+
+# Build Artifacts
+dist/
+build/
+*.js.map
+
+# Dependencies
+node_modules/
+
+# TypeScript cache
+tsconfig.tsbuildinfo
+*.tsbuildinfo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/settings.json
+.idea/
+
+# Logs
+*.log
+npm-debug.log*

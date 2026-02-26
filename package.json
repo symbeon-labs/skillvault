@@ -1,0 +1,14 @@
+{
+  "name": "openclaw-urtn-skill",
+  "version": "1.0.0",
+  "description": "URTN Sovereign Registry for OpenClaw",
+  "main": "dist/index.js",
+  "type": "module",
+  "dependencies": {
+    "openclaw": "file:D:/ORBIT/node_modules/openclaw"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0",
+    "ts-node": "^10.9.1"
+  }
+}

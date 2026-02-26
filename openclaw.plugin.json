@@ -1,0 +1,15 @@
+{
+  "id": "urtn-nexus",
+  "name": "URTN Nexus",
+  "description": "Sovereign Skill Registry",
+  "agent": {
+    "name": "Sentinel Interface",
+    "dna": "./DNA.json",
+    "persona": "./SENTINEL_INTERFACE.md"
+  },
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {}
+  }
+}
