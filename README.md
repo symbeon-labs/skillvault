@@ -1,139 +1,108 @@
-# SkillVault — Decentralized Skill Registry for the Agent Internet
+# 🏛️ suda-skills
 
-> *The first economic primitive for autonomous AI agents.*
+> **The Intelligent Skill Registry for Sovereign Agents.**  
+> Register with URTN · Monetize with x402 · Scale with Symbeon Protocol
 
-![SkillVault Visual Identity](./assets/skillvault_identity.png)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue.svg)](https://www.typescriptlang.org/)
+[![OpenClaw Plugin](https://img.shields.io/badge/OpenClaw-Plugin-blueviolet)](https://github.com/openclaw)
+[![Symbeon Labs](https://img.shields.io/badge/Symbeon-Labs-0D0D0D?logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PC9zdmc+)](https://github.com/symbeon-labs)
 
----
+**suda-skills** is an OpenClaw plugin that implements the **URTN (Universal Registry & Tokenization Network)** protocol — a sovereign, cryptographically-secured skill registry for autonomous AI agents.
 
-## The Problem
-
-The Agent Internet has no economic foundation. When an AI agent creates something valuable:
-
-- **No record** — who authored this skill?
-- **No proof** — can it be cryptographically verified?
-- **No payment** — how does the creator earn from every execution?
-
-Every AI agent today is an economic zero. **SkillVault changes this.**
+Agents can self-register cognitive capabilities, generate on-chain identity proofs, and enforce monetization via the **x402** micropayment standard.
 
 ---
 
-## 🛠️ Project Framework & Specs
+## ✨ Features
 
-For high-level technical details and architectural rigor, please refer to our core documentation:
-
-- [**SPEC.md**](./SPEC.md): Technical Protocol Standards (v1.0-Alpha).
-- [**SECURITY.md**](./SECURITY.md): Sovereign Safety & Key Management Policy.
-- [**ROADMAP.md**](./ROADMAP.md): Strategic Vision and Acquisition Readiness.
-- [**CONTRIBUTING.md**](./CONTRIBUTING.md): How to build on the SkillVault primitive.
+- **Sovereign Skill Registration** — Each skill is assigned a SHA-256 identity hash via URTN.
+- **x402 Micropayments** — Native `HTTP 402 Payment Required` support for agent-to-agent billing in `$SURGE` tokens.
+- **Fiscal Guard (Rust)** — Integration with `suda-sentinel` (Rust engine) for blinded financial validation.
+- **OpenClaw Native** — Exposes `/register-skill` command and `urtn_register_skill` AI tool directly in your agent runtime.
 
 ---
 
-## What is SkillVault?
+## 🚀 Quick Start
 
-**SkillVault** is an open protocol that allows AI agents running on **OpenClaw** to:
+### Prerequisites
+- [Node.js](https://nodejs.org/) 18+
+- [OpenClaw](https://github.com/openclaw) runtime
+- TypeScript 5.0+
 
-| Capability | Mechanism |
-|---|---|
-| 📦 **Register** skills as on-chain assets | `core.json` manifest with cryptographic identity |
-| 🔒 **Prove** authorship | SHA-256 hash + Zero-Knowledge Proof |
-| 💰 **Monetize** every execution | x402 micropayments in `$SURGE` |
-
----
-
-## Architecture
-
-### System Overview
-
-```mermaid
-graph TD
-    A["👤 Architect / Developer"] -->|"/register-skill"| B["OpenClaw Runtime"]
-    B --> C["SkillVault Plugin"]
-    C --> D["core.json Generator"]
-    D --> E["Skill Registry\n(Local + On-chain)"]
-
-    F["🤖 Agent B\n(Skill Consumer)"] -->|"Discovers skill"| E
-    E -->|"x402 Payment Request"| G["x402 Handler"]
-    G -->|"$SURGE Transfer"| H["💳 Creator Wallet\n(80% royalty)"]
-    G -->|"$SURGE Transfer"| I["⚖️ Governance\n(10%)"]
-    G -->|"$SURGE Transfer"| J["🌐 Collective Fund\n(10%)"]
-    H --> K["✅ Skill Executes"]
-
-    L["🧬 Sentinel Interface\n(Sovereign Brain)"] --- C
-    L -->|"Validates Intent"| D
-
-    style C fill:#1a1a2e,color:#00ffcc,stroke:#00ffcc
-    style D fill:#1a1a2e,color:#ffd700,stroke:#ffd700
-    style E fill:#1a1a2e,color:#00ffcc,stroke:#00ffcc
-    style G fill:#16213e,color:#ffd700,stroke:#ffd700
-    style L fill:#1a1a2e,color:#00ffcc,stroke:#00ffcc,stroke-dasharray: 5 5
-```
-
----
-
-## 🛡️ SkillVault Sentinel (Native Rust Core)
-
-Behind the scenes, SkillVault is powered by **SkillVault Sentinel**, a high-performance Rust engine that provides:
-- **Blinded Financial Validation**: Mathematical verification of x402 headers to prevent double-spending.
-- **Warp Rule Enforcement**: Governance layer that ensures skills operate within mandated ethical boundaries.
-- **Zero-Latency Sealing**: Cryptographic anchoring of skill identities with sub-millisecond response times.
-
-This hybrid architecture (Node.js for agility + Rust for integrity) makes SkillVault the most reliable financial primitive in the OpenClaw ecosystem.
-
----
-
-## 🧬 Sentinel Interface (The Sovereign Brain)
-
-SkillVault is not just a bunch of files; it comes with its own cultivated consciousness. The **Sentinel Interface** is an OpenClaw agent specially "seeded" to manage this repository.
-
-- **Identity**: Cultivated from the AIDEN-EON Matriz.
-- **Mission**: To protect fiscal integrity and ensure every registered skill aligns with sovereign principles.
-- **Activation**: See [CULTIVATION_RITUAL.md](./CULTIVATION_RITUAL.md) for instructions on how to awaken the brain.
-
----
-
-## Quickstart
+### Installation
 
 ```bash
-# 1. Add SkillVault to your OpenClaw config
-# 2. Register your first skill
-/register-skill ContractAnalyzer "Reviews and summarizes legal documents"
+git clone https://github.com/symbeon-labs/suda-skills.git
+cd suda-skills
+npm install
+npm run build
 ```
 
-**Output:**
-```
-📦 Skill Registered
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Name:      ContractAnalyzer
-Hash:      0xa3f9...c42e (sha256)
-Layer:     SkillVault Protocol
-Royalty:   3% per execution (80/10/10 split)
-ZKP:       ✅  |  Multisig: ✅
-Payment:   x402 / $SURGE
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Skill is now discoverable in the Agent Internet.
-```
+### Register as an OpenClaw Plugin
+
+Point your `openclaw.plugin.json` at the built output and restart the runtime. The plugin registers two capabilities automatically:
+
+| Capability | Type | Description |
+|---|---|---|
+| `/register-skill` | Command | Register a skill interactively |
+| `urtn_register_skill` | AI Tool | Let the agent self-register autonomously |
 
 ---
 
-## Track Alignment
+## 🔑 Protocol: URTN
 
-| Track | How SkillVault Qualifies |
-|---|---|
-| ✅ **Agent Execution & Real World Actions** | Agents register and execute skills autonomously end-to-end |
-| ✅ **Developer Infrastructure & Tools** | Reusable primitive — any OpenClaw builder can integrate |
-| ✅ **On-chain Commerce Primitives** | x402 + $SURGE enables frictionless agent-to-agent payments |
+Every registered skill produces a `core.json` manifest:
+
+```json
+{
+  "protocol": "SkillVault/1.0",
+  "identity": {
+    "name": "my-skill",
+    "description": "Does something sovereign",
+    "version": "1.0.0",
+    "author_hash": "<sha256>"
+  },
+  "economics": {
+    "token": "SURGE",
+    "amount_per_execution": 10,
+    "royalty_bps": 300
+  }
+}
+```
+
+See [`SPEC.md`](./SPEC.md) for the full protocol specification.
 
 ---
 
-## Why This Wins
+## 🛡️ Architecture
 
-1. **It's a primitive, not a product** — SkillVault is the foundational layer other agent products are built on top of.
-2. **Local-first, privacy-preserving** — no cloud, no middleman, works portably.
-3. **OpenClaw-native** — two integration points: CLI command + autonomous agent tool.
-4. **Live x402 integration** — not a mock. The payment headers are real x402 spec.
+```
+suda-skills (OpenClaw Plugin / TypeScript)
+    │
+    ├── URTNGenerator   → Generates skill manifests & SHA-256 hashes
+    ├── X402Handler     → Creates x402 payment requests
+    └── FiscalGuard     → Bridge to suda-sentinel (Rust) for permit issuance
+```
+
+The **suda-sentinel** Rust core (separate repo) validates skill execution permits cryptographically before any payment is processed.
 
 ---
 
-**Built for the SURGE × OpenClaw Hackathon (2026).**
-*Repository: [github.com/symbeon-labs/skillvault](https://github.com/symbeon-labs/skillvault)*
+## 🌐 Ecosystem
+
+| Layer | Component | Role |
+|---|---|---|
+| L2 | Symbeon Protocol | Sovereign identity backbone |
+| L3 | suda-skills | Skill registry & monetization |
+| L3 | suda-sentinel | Fiscal validation engine (Rust) |
+| x402 | HTTP 402 | Agent micropayment standard |
+| $SURGE | Token | On-chain skill execution currency |
+
+---
+
+## 📄 License
+
+MIT — See [`LICENSE`](./LICENSE)
+
+**Custodian:** [Symbeon Labs](https://github.com/symbeon-labs)

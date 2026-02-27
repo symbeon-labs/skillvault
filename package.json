@@ -1,11 +1,36 @@
 {
-  "name": "openclaw-urtn-skill",
+  "name": "suda-skills",
   "version": "1.0.0",
-  "description": "URTN Sovereign Registry for OpenClaw",
+  "description": "Sovereign Skill Registry & Tokenization Network — OpenClaw plugin implementing URTN + x402 micropayments",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "type": "module",
-  "dependencies": {
-    "openclaw": "file:D:/ORBIT/node_modules/openclaw"
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "lint": "tsc --noEmit"
+  },
+  "keywords": [
+    "openclaw",
+    "ai-agent",
+    "skill-registry",
+    "urtn",
+    "x402",
+    "micropayments",
+    "surge",
+    "symbeon",
+    "autonomous-agents",
+    "web3"
+  ],
+  "author": "Symbeon Labs",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/symbeon-labs/suda-skills.git"
+  },
+  "homepage": "https://github.com/symbeon-labs/suda-skills#readme",
+  "peerDependencies": {
+    "openclaw": ">=1.0.0"
   },
   "devDependencies": {
     "typescript": "^5.0.0",
