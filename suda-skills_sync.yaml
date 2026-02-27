@@ -1,0 +1,61 @@
+# suda-skills DOCSYNC Configuration 🏛️🛡️
+
+log_level: "INFO"
+templates_dir: "templates"
+output_dir: "output"
+backup_dir: "backups"
+temp_dir: "temp"
+
+# Global Identity / ESG
+esg:
+  metrics_enabled: true
+  output_format: "markdown"
+  validation_level: "strict"
+
+# Sincronização
+sync:
+  watch_paths: 
+    - "c:/Users/João/Desktop/PROJETOS/01_CORE_SYSTEMS/suda-skills"
+    - "D:/L1_ENTITIES/ENGINES/suda-sentinel"
+  ignore_patterns: 
+    - ".git"
+    - "**/node_modules/**"
+    - "**/target/**"
+    - "**/dist/**"
+  auto_sync: true
+  sync_interval: 300
+  real_time_sync: false
+  checksum_verification: true
+
+# Integração GUARDRIVE (SUDA Ecosystem)
+guardrive:
+  enabled: true
+  base_path: "c:/Users/João/Desktop/PROJETOS/01_CORE_SYSTEMS/guarddrive"
+  docs_path: "GUARDRIVE_DOCS"
+  dev_path: "AREA_DEV"
+  
+  path_mappings:
+    - source_path: "c:/Users/João/Desktop/PROJETOS/01_CORE_SYSTEMS/suda-skills"
+      target_path: "c:/Users/João/Desktop/PROJETOS/01_CORE_SYSTEMS/guarddrive/GUARDRIVE_DOCS/SUDA-SKILLS"
+      doc_type: "technical"
+      bidirectional: true
+    - source_path: "D:/L1_ENTITIES/ENGINES/suda-sentinel"
+      target_path: "c:/Users/João/Desktop/PROJETOS/01_CORE_SYSTEMS/guarddrive/GUARDRIVE_DOCS/SENTINEL"
+      doc_type: "technical"
+      bidirectional: true
+
+  doc_handlers:
+    technical:
+      file_extensions: ["md", "json", "yaml", "toml"]
+      preserve_metadata: true
+      validate_links: true
+      check_references: true
+
+  version_control:
+    enabled: true
+    provider: "git"
+    backup_enabled: true
+    retention_days: 30
+
+  sync_schedule: "0 * * * *"  # Horário (hourly)
+  validation_level: "strict"

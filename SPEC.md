@@ -3,7 +3,7 @@
 > *Standardization for the Agent Internet Economic Primitive.*
 
 ## 1. Abstract
-This document defines the technical protocol for **SkillVault**, an infrastructure for the registration, validation, and monetization of autonomous AI agent skills.
+This document defines the technical protocol for **SkillVault**, a system for the deterministic registration, cryptographic validation, and atomic resource allocation for autonomous agent capabilities. It solves the problem of non-deterministic skill discovery in decentralized agentic networks.
 
 ## 2. The Core Metadata (`core.json`)
 Every skill registered in the Vault MUST include a `core.json` manifest.

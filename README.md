@@ -8,18 +8,18 @@
 [![OpenClaw Plugin](https://img.shields.io/badge/OpenClaw-Plugin-blueviolet)](https://github.com/openclaw)
 [![Symbeon Labs](https://img.shields.io/badge/Symbeon-Labs-0D0D0D?logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PC9zdmc+)](https://github.com/symbeon-labs)
 
-**suda-skills** is an OpenClaw plugin that implements the **URTN (Universal Registry & Tokenization Network)** protocol — a sovereign, cryptographically-secured skill registry for autonomous AI agents.
+**suda-skills** is an OpenClaw plugin implementing the **URTN (Universal Registry & Automated-Tokenization Network)** — a deterministic framework for the cryptographic registration and cross-agent execution of autonomous cognitive modules.
 
-Agents can self-register cognitive capabilities, generate on-chain identity proofs, and enforce monetization via the **x402** micropayment standard.
+The system provides a high-performance orchestration layer for web-scale agentic infrastructure, ensuring sub-second latency in skill discovery and strict fiscal integrity via hardware-anchored seals.
 
 ---
 
-## ✨ Features
+## 🛠️ Technical Capabilities
 
-- **Sovereign Skill Registration** — Each skill is assigned a SHA-256 identity hash via URTN.
-- **x402 Micropayments** — Native `HTTP 402 Payment Required` support for agent-to-agent billing in `$SURGE` tokens.
-- **Fiscal Guard (Rust)** — Integration with `suda-sentinel` (Rust engine) for blinded financial validation.
-- **OpenClaw Native** — Exposes `/register-skill` command and `urtn_register_skill` AI tool directly in your agent runtime.
+- **Deterministic Skill Anchoring** — Cryptographic derivation of SHA-256 identity hashes for immutable cognitive module registration.
+- **x402 Micropayment Engine** — Integrated state-machine for atomic, agent-to-agent resource allocation via the HTTP 402 standard.
+- **Fiscal Guard (Rust)** — Low-latency bridge to the `suda-sentinel` Rust engine for blinded permit validation and memory-safe execution verification.
+- **Runtime Native Integration** — Direct memory-mapped access to the OpenClaw execution context for autonomous skill provisioning.
 
 ---
 
