@@ -52,33 +52,33 @@ const Footer = () => (
         <div>
           <h4 className="text-primary text-xs font-bold uppercase mb-4 tracking-widest">Protocol</h4>
           <ul className="text-slate-500 text-xs space-y-2 font-mono">
-            <li><a className="hover:text-primary transition-colors underline decoration-primary/20" href="#">[ Documentation ]</a></li>
-            <li><a className="hover:text-primary transition-colors underline decoration-primary/20" href="#">[ Whitepaper ]</a></li>
-            <li><a className="hover:text-primary transition-colors underline decoration-primary/20" href="#">[ SkillVault ]</a></li>
+            <li><a className="hover:text-primary transition-colors underline decoration-primary/20" href="https://github.com/symbeon-labs/suda-skills#readme" target="_blank" rel="noreferrer">[ Documentation ]</a></li>
+            <li><a className="hover:text-primary transition-colors underline decoration-primary/20" href="https://github.com/symbeon-labs/suda-skills/blob/main/SPEC.md" target="_blank" rel="noreferrer">[ Whitepaper ]</a></li>
+            <li><a className="hover:text-primary transition-colors underline decoration-primary/20" href="https://symbeon-labs-suda-skills-protocol.vercel.app" target="_blank" rel="noreferrer">[ SkillVault ]</a></li>
           </ul>
         </div>
         <div>
           <h4 className="text-primary text-xs font-bold uppercase mb-4 tracking-widest">Community</h4>
           <ul className="text-slate-500 text-xs space-y-2 font-mono">
-            <li><a className="hover:text-primary transition-colors underline decoration-primary/20" href="#">[ GitHub ]</a></li>
-            <li><a className="hover:text-primary transition-colors underline decoration-primary/20" href="#">[ Discord ]</a></li>
-            <li><a className="hover:text-primary transition-colors underline decoration-primary/20" href="#">[ X / Twitter ]</a></li>
+            <li><a className="hover:text-primary transition-colors underline decoration-primary/20" href="https://github.com/symbeon-labs" target="_blank" rel="noreferrer">[ GitHub ]</a></li>
+            <li><a className="hover:text-primary transition-colors underline decoration-primary/20" href="https://github.com/symbeon-labs/suda-skills/discussions" target="_blank" rel="noreferrer">[ Discussions ]</a></li>
+            <li><a className="hover:text-primary transition-colors underline decoration-primary/20" href="https://github.com/symbeon-labs/suda-skills/issues" target="_blank" rel="noreferrer">[ Issues ]</a></li>
           </ul>
         </div>
         <div>
           <h4 className="text-primary text-xs font-bold uppercase mb-4 tracking-widest">Legal</h4>
           <ul className="text-slate-500 text-xs space-y-2 font-mono">
-            <li><a className="hover:text-primary transition-colors underline decoration-primary/20" href="#">[ Terms ]</a></li>
-            <li><a className="hover:text-primary transition-colors underline decoration-primary/20" href="#">[ Privacy ]</a></li>
+            <li><a className="hover:text-primary transition-colors underline decoration-primary/20" href="https://github.com/symbeon-labs/suda-skills/blob/main/LICENSE" target="_blank" rel="noreferrer">[ MIT License ]</a></li>
+            <li><a className="hover:text-primary transition-colors underline decoration-primary/20" href="https://github.com/symbeon-labs/suda-skills/blob/main/SECURITY.md" target="_blank" rel="noreferrer">[ Security Policy ]</a></li>
           </ul>
         </div>
       </div>
     </div>
     <div className="mt-16 pt-8 border-t border-primary/5 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] text-slate-600 font-mono tracking-widest uppercase">
-      <span>© 2024 SYMBEON LABS. ALL RIGHTS RESERVED.</span>
+      <a href="https://github.com/symbeon-labs" target="_blank" rel="noreferrer" className="hover:text-primary transition-colors">© 2026 SYMBEON LABS. ALL RIGHTS RESERVED.</a>
       <div className="flex gap-4">
-        <span>LOCAL_LATENCY: 14MS</span>
-        <span>GLOBAL_CONSENSUS: TRUE</span>
+        <a href="https://github.com/symbeon-labs/suda-skills" target="_blank" rel="noreferrer" className="hover:text-primary transition-colors">GITHUB: SYMBEON-LABS/SUDA-SKILLS</a>
+        <a href="https://symbeon-labs-suda-skills-protocol.vercel.app" target="_blank" rel="noreferrer" className="hover:text-primary transition-colors">LIVE: VERCEL</a>
       </div>
     </div>
   </footer>
