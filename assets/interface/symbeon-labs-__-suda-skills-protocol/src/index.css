@@ -3,9 +3,9 @@
 @theme {
   --font-sans: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "Space Mono", ui-monospace, SFMono-Regular, monospace;
-  --color-primary: #00d9ff;
-  --color-terminal-bg: #0a0f12;
-  --color-background-dark: #050708;
+  --color-primary: #2dd4bf;
+  --color-terminal-bg: #0b141a;
+  --color-background-dark: #030506;
 }
 
 @layer base {
