@@ -1,6 +1,0 @@
-*.log
-.ssh/
-.env
-.trash/
-tmp/
-*.tmp

@@ -30,3 +30,6 @@ Thumbs.db
 *.log
 npm-debug.log*
 .vercel
+
+# Internal Sovereignty
+internal_secrets/
