@@ -93,13 +93,13 @@ const LandingPage = ({ onNavigate }: { onNavigate: (page: Page) => void }) => (
         <div className="p-8 md:p-16 flex flex-col justify-center gap-8 border-r border-primary/10">
           <div className="space-y-4">
             <div className="inline-block bg-primary/10 text-primary px-3 py-1 text-xs border border-primary/20">
-              SYSTEM_STATUS: OPERATIONAL
+              SYSTEM_STATUS: OPERATIONAL &nbsp;·&nbsp; SURGE × OPENCLAW HACKATHON 2026
             </div>
             <h1 className="text-4xl md:text-6xl font-bold leading-none tracking-tighter text-slate-100 uppercase font-display">
-              THE ECONOMIC PRIMITIVE FOR THE <span className="text-primary">AGENT INTERNET</span>
+              THE ECONOMIC PRIMITIVE FOR <span className="text-primary">SOVEREIGN AI AGENTS</span>
             </h1>
             <p className="text-slate-400 font-sans max-w-md text-lg leading-relaxed">
-              A High-Tech Terminal aesthetic protocol for SkillVault and the decentralized Agent Internet. Deploy, verify, and trade agentic skills with absolute sovereignty.
+              Suda-Skills transforms AI capabilities into tokenized, on-chain assets. Register, discover and monetize agentic skills with zero intermediaries — powered by the x402 standard and the $SURGE network.
             </p>
           </div>
           <div className="flex flex-wrap gap-4">
@@ -107,13 +107,13 @@ const LandingPage = ({ onNavigate }: { onNavigate: (page: Page) => void }) => (
               onClick={() => onNavigate('dashboard')}
               className="bg-primary text-background-dark px-8 py-4 font-bold hover:invert transition-all border border-primary uppercase text-sm"
             >
-              [ ENTER SKILLVAULT TERMINAL ]
+              [ EXPLORE SKILLVAULT ]
             </button>
             <button 
               onClick={() => onNavigate('transaction')}
               className="border border-primary text-primary px-8 py-4 font-bold hover:bg-primary/10 transition-all uppercase text-sm"
             >
-              [ Read Whitepaper ]
+              [ VIEW PROTOCOL SPEC ]
             </button>
           </div>
         </div>
@@ -136,11 +136,11 @@ const LandingPage = ({ onNavigate }: { onNavigate: (page: Page) => void }) => (
     <section className="p-8 md:p-16 bg-neutral-900/50">
       <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
         <div className="max-w-xl">
-          <h2 className="text-3xl font-bold text-slate-100 mb-4 uppercase tracking-tighter font-display">Why Suda-Skills Matters</h2>
-          <p className="text-slate-400 font-sans">Building the foundations of digital sovereignty and agentic commerce through three core structural pillars.</p>
+          <h2 className="text-3xl font-bold text-slate-100 mb-4 uppercase tracking-tighter font-display">The Three Pillars of Agentic Sovereignty</h2>
+          <p className="text-slate-400 font-sans">A production-ready protocol stack for the $SURGE × OpenClaw ecosystem — where AI capabilities become verifiable, tradeable, and permanently auditable on-chain.</p>
         </div>
         <div className="text-primary text-xs opacity-50 font-mono">
-          SEC_REF: 001-ALPHA-PRIME
+          PROTOCOL: URTN v1.0 | X402 STANDARD
         </div>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border border-primary/10">
@@ -149,12 +149,12 @@ const LandingPage = ({ onNavigate }: { onNavigate: (page: Page) => void }) => (
             <Code size={32} />
             <span className="text-[10px] font-mono opacity-50">#01</span>
           </div>
-          <h3 className="text-xl font-bold text-slate-100 mb-3 uppercase tracking-tighter font-display">Identity (JSON)</h3>
+          <h3 className="text-xl font-bold text-slate-100 mb-3 uppercase tracking-tighter font-display">URTN Identity</h3>
           <p className="text-slate-400 font-sans text-sm leading-relaxed">
-            Standardized schema for agentic identity. Every agent owns its cryptographic root, enabling seamless portability across the protocol ecosystem.
+            Universal Resource Token Network. Each skill receives a globally unique on-chain identity — a tamper-proof <code className="text-primary/80">core.json</code> manifest signed with SHA-256 and optionally verified via ZKP.
           </p>
           <div className="mt-6 pt-6 border-t border-primary/5 text-[10px] text-primary/40 font-mono group-hover:text-primary transition-colors">
-            TYPE: ERC-IDENTITY-V1
+            STANDARD: URTN-v1 | ZKP-COMPATIBLE
           </div>
         </div>
         <div className="p-8 border-b md:border-b-0 md:border-r border-primary/10 hover:bg-primary/5 transition-colors group">
@@ -162,12 +162,12 @@ const LandingPage = ({ onNavigate }: { onNavigate: (page: Page) => void }) => (
             <Activity size={32} />
             <span className="text-[10px] font-mono opacity-50">#02</span>
           </div>
-          <h3 className="text-xl font-bold text-slate-100 mb-3 uppercase tracking-tighter font-display">Economy ($)</h3>
+          <h3 className="text-xl font-bold text-slate-100 mb-3 uppercase tracking-tighter font-display">X402 Payments</h3>
           <p className="text-slate-400 font-sans text-sm leading-relaxed">
-            Programmable value exchange protocols. Automate skill monetization through smart contracts that ensure fair compensation for every computation.
+            HTTP-native micropayments. The server issues a standard <code className="text-primary/80">402 Payment Required</code> challenge. The agent pays in $SURGE and retries with the on-chain <code className="text-primary/80">tx_hash</code> as proof. Zero registration. Zero friction.
           </p>
           <div className="mt-6 pt-6 border-t border-primary/5 text-[10px] text-primary/40 font-mono group-hover:text-primary transition-colors">
-            ENGINE: SKILL-TOKEN-SWAP
+            ENGINE: X402 | SPLIT: 80/10/10
           </div>
         </div>
         <div className="p-8 hover:bg-primary/5 transition-colors group">
@@ -175,22 +175,85 @@ const LandingPage = ({ onNavigate }: { onNavigate: (page: Page) => void }) => (
             <Shield size={32} />
             <span className="text-[10px] font-mono opacity-50">#03</span>
           </div>
-          <h3 className="text-xl font-bold text-slate-100 mb-3 uppercase tracking-tighter font-display">Sovereignty</h3>
+          <h3 className="text-xl font-bold text-slate-100 mb-3 uppercase tracking-tighter font-display">Local-First</h3>
           <p className="text-slate-400 font-sans text-sm leading-relaxed">
-            Local-first data ownership and ZKP security. Agents process sensitive logic locally while proving execution validity to the public ledger.
+            Agents execute sensitive logic locally via the OpenClaw runtime, while validity proofs are broadcast to the SURGE network. Your data never touches a centralized server.
           </p>
           <div className="mt-6 pt-6 border-t border-primary/5 text-[10px] text-primary/40 font-mono group-hover:text-primary transition-colors">
-            LEVEL: ZKP-HARDENED
+            ARCHITECTURE: LOCAL-FIRST | ZKP-HARDENED
           </div>
         </div>
       </div>
     </section>
 
+    {/* SDK Section */}
     <section className="p-8 md:p-16 border-t border-primary/10 bg-background-dark">
+      <div className="max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="space-y-8">
+            <div>
+              <p className="text-primary text-xs font-mono mb-2 uppercase tracking-widest">// FOR DEVELOPERS</p>
+              <h2 className="text-4xl font-black text-slate-100 uppercase tracking-tighter font-display">Build on the<br/><span className="text-primary">Suda-Skills SDK</span></h2>
+            </div>
+            <p className="text-slate-400 font-sans leading-relaxed">
+              The Suda-Skills SDK gives any developer the tools to register sovereign skills, handle x402 micropayments, and integrate seamlessly into the OpenClaw agent ecosystem. Five lines of code to become a node in the agentic economy.
+            </p>
+            <div className="grid grid-cols-2 gap-4">
+              {[
+                { icon: Code, title: 'TypeScript SDK', desc: 'Full type-safety with the OpenClaw Plugin API' },
+                { icon: Shield, title: 'ZKP-Ready Auth', desc: 'Cryptographic signing built-in' },
+                { icon: Zap, title: 'X402 Handler', desc: 'Automatic payment negotiation middleware' },
+                { icon: Network, title: 'Multi-Network', desc: 'Base, Sepolia, and $SURGE mainnet' },
+              ].map((f, i) => (
+                <div key={i} className="border border-primary/10 p-4 hover:border-primary/40 hover:bg-primary/5 transition-all group">
+                  <f.icon className="text-primary mb-2" size={20} />
+                  <p className="text-white text-xs font-bold uppercase tracking-tight">{f.title}</p>
+                  <p className="text-slate-500 text-[10px] mt-1 font-sans">{f.desc}</p>
+                </div>
+              ))}
+            </div>
+            <a href="https://github.com/symbeon-labs/suda-skills" target="_blank" rel="noreferrer" className="inline-flex items-center gap-3 border border-primary text-primary px-6 py-3 text-xs font-bold hover:bg-primary hover:text-background-dark transition-all uppercase tracking-widest">
+              <Code size={14} /> [ READ THE DOCS ON GITHUB ]
+            </a>
+          </div>
+          <div className="bg-neutral-900 border border-primary/30 p-1">
+            <div className="bg-black/60 p-4 border border-primary/10">
+              <div className="flex items-center justify-between mb-4 border-b border-primary/10 pb-2">
+                <div className="flex gap-2">
+                  <div className="size-2 bg-red-500/50"></div>
+                  <div className="size-2 bg-yellow-500/50"></div>
+                  <div className="size-2 bg-primary/50"></div>
+                </div>
+                <span className="text-[10px] text-slate-500 uppercase tracking-widest">suda-skills-sdk · agent.ts</span>
+              </div>
+              <div className="font-mono text-xs md:text-sm space-y-1 py-2">
+                <p className="text-slate-500">{'// 1. Install the SDK'}</p>
+                <p><span className="text-primary">$</span> <span className="text-slate-300">npm install @symbeon/suda-skills ethers</span></p>
+                <br/>
+                <p className="text-slate-500">{'// 2. Register your first Skill'}</p>
+                <p><span className="text-slate-400">import</span> <span className="text-primary">{'{ SkillVault }'}</span> <span className="text-slate-400">from</span> <span className="text-green-400">'@symbeon/suda-skills'</span><span className="text-slate-400">;</span></p>
+                <br/>
+                <p><span className="text-slate-400">const</span> <span className="text-primary">vault</span> <span className="text-slate-400">=</span> <span className="text-slate-300">new SkillVault({'{'}</span></p>
+                <p><span className="text-slate-300">&nbsp;&nbsp;network: </span><span className="text-green-400">'surge'</span><span className="text-slate-300">,</span></p>
+                <p><span className="text-slate-300">&nbsp;&nbsp;privateKey: process.env.</span><span className="text-primary">AGENT_KEY</span></p>
+                <p><span className="text-slate-300">{'})'}</span><span className="text-slate-400">;</span></p>
+                <br/>
+                <p><span className="text-slate-400">await</span> <span className="text-primary">vault</span><span className="text-slate-400">.register({'{'}</span></p>
+                <p><span className="text-slate-300">&nbsp;&nbsp;name: </span><span className="text-green-400">'deep-translation-v2'</span><span className="text-slate-300">,</span></p>
+                <p><span className="text-slate-300">&nbsp;&nbsp;price: </span><span className="text-primary">2.5</span><span className="text-slate-300">, currency: </span><span className="text-green-400">'SURGE'</span></p>
+                <p><span className="text-slate-300">{'})'}</span><span className="text-slate-400">; // txHash returned ✓</span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section className="p-8 md:p-16 border-t border-primary/10 bg-black/30">
       <div className="max-w-4xl mx-auto">
         <div className="flex items-center gap-4 mb-8">
           <div className="h-[1px] flex-1 bg-primary/20"></div>
-          <h2 className="text-2xl font-bold text-slate-100 uppercase tracking-tighter font-display">Developer Quickstart</h2>
+          <h2 className="text-2xl font-bold text-slate-100 uppercase tracking-tighter font-display">X402 Integration in 3 Steps</h2>
           <div className="h-[1px] flex-1 bg-primary/20"></div>
         </div>
         <div className="bg-neutral-900 border border-primary/30 p-1">
@@ -199,28 +262,31 @@ const LandingPage = ({ onNavigate }: { onNavigate: (page: Page) => void }) => (
               <div className="flex gap-2">
                 <div className="size-2 bg-red-500/50"></div>
                 <div className="size-2 bg-yellow-500/50"></div>
-                <div className="size-2 bg-green-500/50"></div>
+                <div className="size-2 bg-primary/50"></div>
               </div>
-              <span className="text-[10px] text-slate-500 uppercase tracking-widest">terminal interface — v0.1.0</span>
+              <span className="text-[10px] text-slate-500 uppercase tracking-widest">suda-skills · quickstart.sh</span>
             </div>
-            <div className="font-mono text-sm md:text-base space-y-2 py-4">
+            <div className="font-mono text-sm md:text-base space-y-3 py-4">
               <div className="flex gap-4">
                 <span className="text-primary/40 select-none">01</span>
-                <p className="text-slate-400"><span className="text-primary">$</span> npm install @symbeon/suda-skills</p>
+                <p className="text-slate-400"><span className="text-primary">$</span> npm install @symbeon/suda-skills ethers dotenv</p>
               </div>
               <div className="flex gap-4">
                 <span className="text-primary/40 select-none">02</span>
-                <p className="text-slate-400"><span className="text-primary">$</span> suda-skills register --identity <span className="text-primary">0x...agent</span></p>
+                <p className="text-slate-400"><span className="text-primary">$</span> suda register --name <span className="text-primary">"my-skill"</span> --price <span className="text-primary">2.5 SURGE</span></p>
               </div>
               <div className="flex gap-4">
                 <span className="text-primary/40 select-none">03</span>
-                <p className="text-slate-400"><span className="text-primary">$</span> suda-skills vault --sync</p>
+                <p className="text-slate-400"><span className="text-primary">$</span> suda vault --sync <span className="text-slate-500">// Auto-listens for x402 challenges</span></p>
+              </div>
+              <div className="pt-2 border-t border-primary/10 text-[10px] text-primary/50 font-mono">
+                ✓ Skill registered · ✓ X402 middleware active · ✓ SURGE payments flowing
               </div>
             </div>
             <div className="flex justify-end mt-4">
-              <button className="bg-primary/10 border border-primary text-primary px-4 py-2 text-xs font-bold hover:bg-primary hover:text-background-dark transition-all">
-                [ COPY COMMAND ]
-              </button>
+              <a href="https://github.com/symbeon-labs/suda-skills" target="_blank" rel="noreferrer" className="bg-primary/10 border border-primary text-primary px-4 py-2 text-xs font-bold hover:bg-primary hover:text-background-dark transition-all">
+                [ VIEW FULL DOCUMENTATION ]
+              </a>
             </div>
           </div>
         </div>
@@ -434,12 +500,12 @@ const TransactionPage = () => (
   <div className="flex-1 max-w-7xl mx-auto w-full px-6 lg:px-12 py-12">
     <section className="mb-20">
       <div className="border-l-4 border-primary pl-6 py-4">
-        <p className="font-mono text-primary text-sm mb-2">// PROTOCOL V.2.0.4 - ACTIVE</p>
+        <p className="font-mono text-primary text-sm mb-2">// URTN PROTOCOL v1.0 — OPENCLAW × SURGE HACKATHON 2026</p>
         <h1 className="text-4xl lg:text-7xl font-black uppercase leading-none tracking-tighter max-w-4xl font-display">
-          THE ANATOMY OF AN <span className="text-primary">AGENT-TO-AGENT</span> TRANSACTION
+          HOW AN <span className="text-primary">AI AGENT</span> BUYS A SKILL
         </h1>
         <p className="mt-6 text-lg lg:text-xl text-slate-400 max-w-2xl font-light">
-          A high-tech Industrial Cyberpunk protocol for AI agent autonomy and seamless skill exchange in decentralized networks.
+          A step-by-step breakdown of the x402 protocol flow — from skill discovery to atomic settlement on the $SURGE network. No intermediaries, no API keys, no billing dashboards.
         </p>
       </div>
     </section>
@@ -448,10 +514,10 @@ const TransactionPage = () => (
         <div className="absolute -left-4 top-0 bottom-0 w-px bg-primary/20"></div>
         <div className="space-y-12">
           {[
-            { phase: '01', title: 'DISCOVERY', icon: Search, desc: "Agent A initiates a request. Queries the SkillVault for encrypted skill module 'Market-Analysis-v2'. Global index synchronization confirms availability." },
-            { phase: '02', title: 'NEGOTIATION', icon: Network, desc: "Automated x402 handshake sequence. Terms are locked via $SURGE smart contract. Non-custodial escrow established for transaction safety." },
-            { phase: '03', title: 'EXECUTION', icon: Shield, desc: "ZKP-verified skill deployment. Skill binaries are decrypted within a local-first hardened sandbox. Agent capabilities expanded in real-time." },
-            { phase: '04', title: 'SETTLEMENT', icon: Wallet, desc: "Real-time royalty split (80/10/10). Transaction hash recorded on block explorer. Agent A and Agent B reputation updated." },
+            { phase: '01', title: 'DISCOVERY', icon: Search, desc: "Agent A queries the URTN index for 'deep-translation-v2'. The SkillVault returns a signed core.json manifest with pricing, availability, and the ZKP proof-of-execution hash." },
+            { phase: '02', title: 'X402 CHALLENGE', icon: Network, desc: "Agent A calls the skill endpoint. The server (Rust/Axum) responds with HTTP 402 and an X-Payment-Request header specifying the $SURGE amount, destination wallet, and chain ID (e.g., Base 8453)." },
+            { phase: '03', title: 'PAY & PROVE', icon: Shield, desc: "Agent A executes the micropayment on-chain and retries the request with the X-402-Payment-Proof header containing the transaction hash. The server validates and executes the skill." },
+            { phase: '04', title: 'SETTLEMENT', icon: Wallet, desc: "The smart contract atomically splits the payment: 80% creator, 10% Symbeon governance, 10% community collective. The URTN transaction log is updated on-chain, immutably." },
           ].map((step, i) => (
             <div key={i} className="relative flex gap-8 group">
               <div className="flex flex-col items-center">
