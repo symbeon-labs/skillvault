@@ -11,8 +11,9 @@
  * - FERRAMENTA: O agente AIDEN chama "urtn_register_skill" de forma autônoma, sem intervenção humana.
  */
 
-import type { OpenClawPluginApi, PluginCommandContext, PluginCommandResult } from "openclaw/plugin-sdk";
+import type { OpenClawPluginApi } from "openclaw/plugin-sdk";
 import { emptyPluginConfigSchema } from "openclaw/plugin-sdk";
+
 import { URTNGenerator } from "./urtn_generator.js";
 import { X402Handler } from "./x402_schema.js";
 
@@ -36,7 +37,8 @@ const extensao = {
             name: "register-skill",
             description: "Registra uma nova habilidade no URTN Nexo Soberano",
             acceptsArgs: true, // Aceita argumentos após o comando
-            handler: async (ctx: PluginCommandContext): Promise<PluginCommandResult> => {
+            handler: async (ctx: any) => {
+
                 // Separa os argumentos: o primeiro é o nome, o resto é a descrição
                 const args = ctx.args?.split(" ") || [];
                 if (args.length < 2) {
@@ -54,13 +56,14 @@ const extensao = {
 
                 // Retorna a confirmação formatada para a conversa
                 return {
-                    content: `📦 **Habilidade Registrada Soberanamente!**\n\n` +
+                    text: `📦 **Habilidade Registrada Soberanamente!**\n\n` +
                              `**Nome:** ${metadados.name}\n` +
                              `**ID (Hash):** ${metadados.hash}\n` +
                              `**Protocolo:** URTN Camada Φ\n\n` +
                              `💰 **Pagamento x402 Necessário:** ${pagamento.amount_per_execution} ${pagamento.token}\n` +
                              `Direcionado para: \`${pagamento.recipient_address}\``
                 };
+
             }
         });
 
@@ -69,10 +72,11 @@ const extensao = {
         // Uso: o AIDEN chama isso de forma automática, sem intervenção humana
         // O agente "pensa": "Preciso registrar o que acabei de fazer. Vou usar a ferramenta URTN."
         // =====================================================
-        api.registerTool((ctx: any) => ({
+        api.registerTool({
             name: "urtn_register_skill",
+            label: "Registrar Habilidade URTN",
             description: "Permite que o agente registre suas próprias habilidades no Nexo Soberano.",
-            inputSchema: {
+            parameters: {
                 // Define o "contrato" de entrada da ferramenta
                 type: "object",
                 properties: {
@@ -81,23 +85,29 @@ const extensao = {
                 },
                 required: ["name", "description"]
             },
-            // Handler: o código que realmente executa quando a ferramenta é chamada
-            async handler({ name, description }: { name: string; description: string }) {
+            // Execute: o código que realmente executa quando a ferramenta é chamada
+            async execute(toolCallId: string, { name, description }: { name: string; description: string }) {
                 // Gera o manifesto soberano
                 const metadados = URTNGenerator.generate({ name, description });
 
                 // Prepara o pedido de royalty
                 const pedido_pagamento = X402Handler.createPaymentRequest(10, "0xWALLET_DO_ARQUITETO_MOCK");
 
-                // Retorna tudo ao agente para que ele continue seu raciocínio
+                // Retorna tudo codificado para o agente
                 return {
-                    status: "sucesso",
-                    metadados,
-                    pedido_pagamento,
-                    manifesto: `A habilidade "${name}" foi ancorada no Nexo Soberano.`
+                    content: [{
+                        type: "text" as const,
+                        text: `A habilidade "${name}" foi ancorada no Nexo Soberano.`
+                    }],
+                    details: {
+                        status: "sucesso",
+                        metadados,
+                        pedido_pagamento
+                    }
                 };
             }
-        }));
+        });
+
 
         api.logger.info("URTN Nexus: Registro Soberano ativo. O Nexo aguarda novas habilidades.");
     },

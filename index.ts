@@ -1,5 +1,6 @@
-import type { OpenClawPluginApi, PluginCommandContext, PluginCommandResult } from "openclaw/plugin-sdk";
+import type { OpenClawPluginApi } from "openclaw/plugin-sdk";
 import { emptyPluginConfigSchema } from "openclaw/plugin-sdk";
+
 import { URTNGenerator } from "./urtn_generator.js";
 import { X402Handler } from "./x402_schema.js";
 
@@ -18,7 +19,8 @@ const plugin = {
             name: "register-skill",
             description: "Register a new skill in the URTN Sovereign Nexus",
             acceptsArgs: true,
-            handler: async (ctx: PluginCommandContext): Promise<PluginCommandResult> => {
+            handler: async (ctx: any) => {
+
                 const args = ctx.args?.split(" ") || [];
                 if (args.length < 2) {
                     return { content: "Usage: /register-skill <name> <description>" };
@@ -31,21 +33,23 @@ const plugin = {
                 const payment = X402Handler.createPaymentRequest(10, "0xARQUITETO_WALLET_MOCK");
 
                 return {
-                    content: `📦 **Skill Registered Soberanamente!**\n\n` +
+                    text: `📦 **Skill Registered Soberanamente!**\n\n` +
                              `**Name:** ${metadata.name}\n` +
                              `**ID (Hash):** ${metadata.hash}\n` +
                              `**Protocolo:** URTN Layer Φ\n\n` +
                              `💰 **Pagamento x402 Requerido:** ${payment.amount_per_execution} ${payment.token}\n` +
                              `Direcionado a: \`${payment.recipient_address}\``
                 };
+
             }
         });
 
         // 2. Register Tool for Agent Autonomy
-        api.registerTool((ctx: any) => ({
+        api.registerTool({
             name: "urtn_register_skill",
+            label: "Register URTN Skill",
             description: "Allows the agent to register its own skills in the Sovereign Nexus.",
-            inputSchema: {
+            parameters: {
                 type: "object",
                 properties: {
                     name: { type: "string" },
@@ -53,7 +57,7 @@ const plugin = {
                 },
                 required: ["name", "description"]
             },
-            async handler({ name, description }: { name: string; description: string }) {
+            async execute(toolCallId: string, { name, description }: { name: string; description: string }) {
                 const metadata = URTNGenerator.generate({ name, description });
                 const payment = X402Handler.createPaymentRequest(10, "0xARQUITETO_WALLET_MOCK");
                 
@@ -67,14 +71,23 @@ const plugin = {
                 };
                 
                 return {
-                    status: "success",
-                    metadata,
-                    payment_request: payment,
-                    fiscal_verification: fiscal_guard,
-                    manifesto: `Skill ${name} has been anchored and fiscally sealed by the Sovereign Engine.`
+                    content: [{
+                        type: "text" as const,
+                        text: `Skill ${name} has been anchored and fiscally sealed by the Sovereign Engine.`
+                    }],
+                    details: {
+                        status: "success",
+                        metadata,
+                        payment_request: payment,
+                        fiscal_verification: fiscal_guard
+                    }
                 };
+
+
             }
-        }));
+        });
+
+
     },
 };
 
