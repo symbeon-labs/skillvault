@@ -1,6 +1,7 @@
-# URTN-Nexus Technical Specification (v1.0-Alpha)
+# URTN Protocol Specification (v1.0)
 
-> *Standardization for the Sovereign Agentic Economy.*
+> *The economic and identity standard for the Sovereign Agentic Economy.*
+> **Built for the SURGE × OpenClaw Hackathon 2026**
 
 ## 1. Abstract
 This document defines the technical protocol for **URTN-Nexus**, a system for the deterministic registration, cryptographic validation, and atomic resource allocation for autonomous agent capabilities. It solves the problem of non-deterministic skill discovery in decentralized agentic networks.
@@ -37,15 +38,22 @@ Every skill registered in the Vault MUST include a `core.json` manifest.
 }
 ```
 
-## 3. The L402 Payment Protocol
-URTN-Nexus implements a state-machine compatible with the **L402 (Lightning/HTTP 402)** standard for agent-to-agent transactions.
+## 3. The x402 Payment Protocol
+URTN implements the **HTTP 402 Payment Required** standard (x402) for frictionless agent-to-agent micropayments on the `$SURGE` network.
 
-### 3.1 Required Headers
-- `X-L402-Payment-Required`: `true`
-- `X-URTN-Identity`: The `sha256` hash of the skill's `core.json`.
-- `X-URTN-Amount`: Amount in `$SURGE`.
-- `X-URTN-Recipient`: The Network Settlement wallet address.
-- `X-URTN-Retry-Policy`: Incremental backoff (default: 3 retries).
+### 3.1 Payment Flow
+```
+1. Agent calls skill endpoint (POST /execute-skill)
+2. Server responds: HTTP 402 + X-Payment-Request header
+3. Agent pays on-chain in $SURGE
+4. Agent retries with X-402-Payment-Proof: <tx_hash>
+5. Server validates proof → executes skill → returns result
+```
+
+### 3.2 Required Headers
+- `X-Payment-Request`: JSON with `{amount, currency: "SURGE", chain_id, destination}`
+- `X-402-Payment-Proof`: The on-chain `tx_hash` from the $SURGE payment
+- `X-URTN-Identity`: The `sha256` hash of the skill's `core.json`
 
 ## 4. suda-sentinel (Native Engine)
 The core engine (**suda-sentinel**) is responsible for the **Blinded Financial Validation**.
@@ -59,8 +67,14 @@ The core engine (**suda-sentinel**) is responsible for the **Blinded Financial V
 ## 5. Storage & Persistence
 - **Runtime Persistence**: Abstracted via local encrypted storage providers.
 - **Sovereign**: Encrypted `.vault` on portable hardware anchors.
-- **On-chain**: Anchor hashes on optimized Layer 2 settlement chains.
+- **On-chain**: Anchor hashes on SURGE network (Base-compatible L2).
+
+## 6. Demo Access
+Live interface: **https://symbeon-labs-suda-skills-protocol.vercel.app**
+- Agent ID: `AGENT_0x_SYMBEON_DEMO`
+- Signature Key: `SURGE_TRIAL_KEY_2026`
 
 ---
-*Status: STABLE / MASTER*
-*Custodian: Symbeon Labs*
+*Status: PRODUCTION-READY ALPHA*  
+*Custodian: [Symbeon Labs](https://github.com/symbeon-labs)*  
+*Hackathon: SURGE × OpenClaw 2026*
