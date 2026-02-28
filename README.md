@@ -1,138 +1,167 @@
-# 🏛️ suda-skills
+# ⚡ Suda-Skills: Sovereign Skill Registry & Tokenization Network
 
-> **The Intelligent Skill Registry for Sovereign Agents.**  
-> Register with URTN · Monetize with L402 · Scale with Symbeon Protocol
+> **AIs can now negotiate.**
+> The economic primitive that transforms AI capabilities into on-chain, sovereign assets.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue.svg)](https://www.typescriptlang.org/)
 [![OpenClaw Plugin](https://img.shields.io/badge/OpenClaw-Plugin-blueviolet)](https://github.com/openclaw)
-[![Symbeon Labs](https://img.shields.io/badge/Symbeon-Labs-0D0D0D?logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PC9zdmc+)](https://github.com/symbeon-labs)
+[![SURGE Network](https://img.shields.io/badge/$SURGE-Network-2dd4bf)](https://surge.network)
+[![Symbeon Labs](https://img.shields.io/badge/Symbeon-Labs-0D0D0D)](https://github.com/symbeon-labs)
 
-![URTN-Nexus Architecture](./assets/urtn_nexus_architecture.png)
+## 🌐 Live Demo
 
-**suda-skills** is an OpenClaw plugin implementing the **URTN (Universal Registry & Automated-Tokenization Network)** — a deterministic framework for the cryptographic registration and cross-agent execution of autonomous cognitive modules.
-
-### 🌐 Official Sovereign Interface
-The ecosystem is accessible via the **[@SYMBEON_BOT](https://t.me/SYMBEON_BOT)** on Telegram, providing a multi-model agnostic interface (Gemini 1.5/3, Llama 3) for real-time protocol management.
-
----
-
-## 🛠️ Technical Capabilities
-
-- **Deterministic Skill Anchoring** — Cryptographic derivation of SHA-256 identity hashes for immutable cognitive module registration.
-- **L402 Micropayment Engine** — Integrated state-machine for atomic, agent-to-agent resource allocation via the L402 (Lightning/HTTP 402) standard.
-- **Fiscal Guard (Rust)** — Low-latency bridge to the `suda-sentinel` Rust engine for blinded permit validation and memory-safe execution verification.
-- **Runtime Native Integration** — Direct memory-mapped access to the OpenClaw execution context for autonomous skill provisioning.
+**[→ sentinel-interface.vercel.app](https://symbeon-labs-suda-skills-protocol.vercel.app)**
+- Login: `AGENT_0x_SYMBEON_DEMO` / Key: `SURGE_TRIAL_KEY_2026`
 
 ---
 
-## 🎓 Scientific Authority
+**Suda-Skills** is the economic and identity layer for the Agentic Internet. It enables autonomous AI agents to discover, verify, and purchase skills using a decentralized, local-first architecture — with zero intermediaries and zero API keys.
 
-This project has been auditied by the **Themis Engine** (Juridical Innovation Agent) and reached an **Innovation Score of 83/100**.
+---
 
-- **Technical Whitepaper**: [URTN-Nexus: A Sovereign Framework for Autonomous Agent Skill Tokenization](./docs/authority_paper.tex)
-- **Vectors**: H=0.923 (Entropy), Z=1.000 (Zipf), C=0.500 (Compliance)
-- **Innovation Audit**: Validated as a patentable technical method for deterministic cognitive discovery.
+## 🏛️ Core Architecture
+
+| Pillar | Description |
+|---|---|
+| **URTN** | Universal Resource Token Network — every skill gets a globally unique on-chain identity, a tamper-proof `core.json` signed with SHA-256. |
+| **x402 Micropayments** | HTTP-native payment standard. Server responds with `402 Payment Required`. Agent pays in `$SURGE`, retries with `tx_hash` as proof. |
+| **OpenClaw Plugin** | Native integration with the OpenClaw agent runtime. Two commands: `/register-skill` and tool `urtn_register_skill`. |
+| **80/10/10 Split** | Immutable atomic settlement: 80% Creator · 10% Governance · 10% Collective Pool. |
+
+---
+
+## 🔄 X402 Payment Flow
+
+```
+Agent A                    SkillVault Server              $SURGE Network
+   │                             │                              │
+   │──── POST /execute-skill ───▶│                              │
+   │                             │                              │
+   │◀─── HTTP 402 ───────────────│                              │
+   │     X-Payment-Request:      │                              │
+   │     {amount: 2.5 SURGE,     │                              │
+   │      chain_id: 8453}        │                              │
+   │                             │                              │
+   │─────────────────────────────────── sendTransaction() ─────▶│
+   │◀─────────────────────────────────── tx_hash ───────────────│
+   │                             │                              │
+   │──── POST /execute-skill ───▶│                              │
+   │     X-402-Payment-Proof:    │                              │
+   │     0xabc...def             │                              │
+   │                             │                              │
+   │◀─── 200 OK + result ────────│                              │
+```
+
+---
+
+## 🦀 Tech Stack
+
+- **Backend:** Rust (Axum + Tokio) — sub-millisecond latency, memory-safe x402 middleware
+- **SDK:** TypeScript 5.0 — full type-safety, OpenClaw Plugin API
+- **Payments:** Ethers.js v6 — Base, Sepolia, $SURGE mainnet
+- **Security:** ZKP-ready validation, SHA-256 local node fingerprinting
+- **Frontend:** Sentinel Interface — Industrial Terminal UI deployed on Vercel
 
 ---
 
 ## 🚀 Quick Start
 
-### Prerequisites
-- [Node.js](https://nodejs.org/) 18+
-- [OpenClaw](https://github.com/openclaw) runtime
-- TypeScript 5.0+
-
-### Installation
-
 ```bash
-git clone https://github.com/symbeon-labs/suda-skills.git
-cd suda-skills
-npm install
-npm run build
+# Install the Suda-Skills SDK
+npm install @symbeon/suda-skills ethers dotenv
+
+# Register your skill
+suda register --name "my-skill" --price 2.5 --currency SURGE
+
+# Start listening for x402 challenges
+suda vault --sync
+# ✓ Skill registered · ✓ X402 middleware active · ✓ SURGE payments flowing
 ```
 
-### Register as an OpenClaw Plugin
-
-Point your `openclaw.plugin.json` at the built output and restart the runtime. The plugin registers two capabilities automatically:
-
-| Capability | Type | Description |
-|---|---|---|
-| `/register-skill` | Command | Register a skill interactively |
-| `urtn_register_skill` | AI Tool | Let the agent self-register autonomously |
-
----
-
-## 🔑 Protocol: URTN
-
-Every registered skill produces a `core.json` manifest:
+### URTN Skill Manifest (`core.json`)
 
 ```json
 {
   "protocol": "SkillVault/1.0",
   "identity": {
-    "name": "my-skill",
-    "description": "Does something sovereign",
+    "name": "deep-translation-v2",
     "version": "1.0.0",
     "author_hash": "<sha256>"
   },
   "economics": {
     "token": "SURGE",
-    "amount_per_execution": 10,
-    "royalty_bps": 300
+    "amount_per_execution": 2.5,
+    "split": { "creator": 80, "governance": 10, "collective": 10 }
   }
 }
 ```
-
-See [`SPEC.md`](./SPEC.md) for the full protocol specification.
 
 ---
 
 ## 🛡️ Architecture
 
-### System Overview
-
 ```mermaid
 graph TD
-    A["👤 Architect / Developer"] -->|"/register-protocol"| B["OpenClaw Runtime"]
-    B --> C["URTN-Nexus Extension"]
-    C --> D["core.json (Manifest)"]
-    D --> E["Sovereign Registry\n(L1 Node + On-chain)"]
+    A["👤 Developer"] -->|"register"| B["OpenClaw Runtime"]
+    B --> C["URTN Registry"]
+    C --> D["core.json Manifest"]
+    D --> E["On-chain Index (SURGE)"]
 
-    F["🤖 Consumer Node\n(Skill Requester)"] -->|"Discovery"| E
-    E -->|"L402 Payment Request"| G["L402 Handler"]
-    G -->|"$SURGE Transfer"| H["💳 Creator Node\n(80% Settlement)"]
-    G -->|"$SURGE Transfer"| I["⚖️ L0 Governance\n(10%)"]
-    G -->|"$SURGE Transfer"| J["🌐 Collective Fund\n(10%)"]
-    H --> K["✅ Execution permit issued"]
+    F["🤖 Consumer Agent"] -->|"Discovery"| E
+    E -->|"HTTP 402 Challenge"| G["x402 Handler (Rust)"]
+    G -->|"$SURGE Transfer"| H["💳 Creator (80%)"]
+    G -->|"$SURGE Transfer"| I["⚖️ Governance (10%)"]
+    G -->|"$SURGE Transfer"| J["🌐 Collective (10%)"]
+    H --> K["✅ Skill Executed"]
 
-    L["🧬 Sentinel Engine\n(Sovereign Validation)"] --- C
-    L -->|"Verifies Integrity"| D
-
-    style C fill:#1a1a2e,color:#00ffcc,stroke:#00ffcc
-    style D fill:#1a1a2e,color:#ffd700,stroke:#ffd700
-    style E fill:#1a1a2e,color:#00ffcc,stroke:#00ffcc
-    style G fill:#16213e,color:#ffd700,stroke:#ffd700
-    style L fill:#1a1a2e,color:#00ffcc,stroke:#00ffcc,stroke-dasharray: 5 5
+    style C fill:#1a1a2e,color:#2dd4bf,stroke:#2dd4bf
+    style G fill:#16213e,color:#2dd4bf,stroke:#2dd4bf
 ```
-
-### Component Breakdown
-
-- **URTN Generator** — Produces immutable SHA-256 identity hashes.
-- **L402 Handler** — Orchestrates atomic agent-to-agent settlement.
-- **suda-sentinel** — High-performance Rust engine for permit validation.
 
 ---
 
-## 🌐 Ecosystem
+## 🌐 Ecosystem Layer Map
 
 | Layer | Component | Role |
 |---|---|---|
 | L2 | Symbeon Protocol | Sovereign identity backbone |
-| L3 | suda-skills | Skill registry & monetization |
-| L3 | suda-sentinel | Fiscal validation engine (Rust) |
-| L402 | HTTP 402 | Agent micropayment standard |
+| L3 | **suda-skills** | Skill registry & x402 monetization |
+| L3 | suda-sentinel | Rust fiscal validation engine |
+| x402 | HTTP 402 Standard | Agent micropayment protocol |
 | $SURGE | Token | On-chain skill execution currency |
+| OpenClaw | Runtime | Agent execution environment |
+
+---
+
+## 🧪 Agent Integration Tests
+
+```bash
+# Run the X402 cycle test (with graceful mock fallback)
+npx ts-node tests/agent_x402.test.ts
+
+# Expected output:
+# ✅ Got 402 Payment Required
+# ✅ Micropayment sent: 0xabc...def
+# 🎉 TEST PASSED: X402 Cycle Complete!
+```
+
+---
+
+## 📦 Repository Structure
+
+```
+suda-skills/
+├── index.ts              # Main OpenClaw plugin entry
+├── index.ptbr.ts         # Portuguese localized version
+├── x402_schema.ts        # X402 payment schema & types
+├── urtn_generator.ts     # URTN identity hash generator
+├── src/
+│   └── blockchain.ts     # Wallet & Ethers.js utility
+├── tests/
+│   └── agent_x402.test.ts # Integration test suite
+└── assets/interface/     # Sentinel Interface (Vite + React)
+```
 
 ---
 
@@ -140,4 +169,5 @@ graph TD
 
 MIT — See [`LICENSE`](./LICENSE)
 
-**Custodian:** [Symbeon Labs](https://github.com/symbeon-labs)
+**Built at the SURGE × OpenClaw Hackathon 2026**
+**Custodian:** [Symbeon Labs](https://github.com/symbeon-labs) 🛰️
