@@ -1,4 +1,5 @@
 {
+  "installCommand": "npm install --prefix assets/interface/symbeon-labs-__-suda-skills-protocol",
   "buildCommand": "npm run build --prefix assets/interface/symbeon-labs-__-suda-skills-protocol",
   "outputDirectory": "assets/interface/symbeon-labs-__-suda-skills-protocol/dist",
   "framework": "vite",
