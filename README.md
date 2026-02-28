@@ -1,7 +1,7 @@
 # 🏛️ suda-skills
 
 > **The Intelligent Skill Registry for Sovereign Agents.**  
-> Register with URTN · Monetize with x402 · Scale with Symbeon Protocol
+> Register with URTN · Monetize with L402 · Scale with Symbeon Protocol
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue.svg)](https://www.typescriptlang.org/)
@@ -17,7 +17,7 @@ The system provides a high-performance orchestration layer for web-scale agentic
 ## 🛠️ Technical Capabilities
 
 - **Deterministic Skill Anchoring** — Cryptographic derivation of SHA-256 identity hashes for immutable cognitive module registration.
-- **x402 Micropayment Engine** — Integrated state-machine for atomic, agent-to-agent resource allocation via the HTTP 402 standard.
+- **L402 Micropayment Engine** — Integrated state-machine for atomic, agent-to-agent resource allocation via the L402 (Lightning/HTTP 402) standard.
 - **Fiscal Guard (Rust)** — Low-latency bridge to the `suda-sentinel` Rust engine for blinded permit validation and memory-safe execution verification.
 - **Runtime Native Integration** — Direct memory-mapped access to the OpenClaw execution context for autonomous skill provisioning.
 
@@ -106,7 +106,7 @@ The **suda-sentinel** Rust core (separate repo) validates skill execution permit
 | L2 | Symbeon Protocol | Sovereign identity backbone |
 | L3 | suda-skills | Skill registry & monetization |
 | L3 | suda-sentinel | Fiscal validation engine (Rust) |
-| x402 | HTTP 402 | Agent micropayment standard |
+| L402 | HTTP 402 | Agent micropayment standard |
 | $SURGE | Token | On-chain skill execution currency |
 
 ---
