@@ -261,6 +261,10 @@ const AuthPage = ({ onNavigate }: { onNavigate: (page: Page) => void }) => (
               STATUS: ENCRYPTED_CONNECTION_ESTABLISHED
             </p>
           </div>
+          <div className="bg-primary/10 border border-primary/40 p-3 text-center">
+            <p className="text-[10px] font-bold text-primary uppercase tracking-widest">⚡ DEMO ACCESS — HACKATHON REVIEW MODE</p>
+            <p className="text-[10px] text-primary/70 mt-1">ID: <span className="font-mono">AGENT_0x_SYMBEON_DEMO</span> · KEY: <span className="font-mono">SURGE_TRIAL_KEY_2026</span></p>
+          </div>
           <div className="space-y-6">
             <div className="space-y-2">
               <label className="block text-xs font-bold tracking-tighter uppercase text-primary/70">
@@ -269,7 +273,7 @@ const AuthPage = ({ onNavigate }: { onNavigate: (page: Page) => void }) => (
               <div className="relative">
                 <input 
                   className="w-full bg-primary/5 border border-primary/30 text-primary p-4 focus:ring-0 focus:border-primary outline-none placeholder:text-primary/20 text-sm" 
-                  placeholder="[AGENT_ID_0x...]" 
+                  defaultValue="AGENT_0x_SYMBEON_DEMO"
                   type="text"
                 />
                 <Terminal className="absolute right-4 top-1/2 -translate-y-1/2 text-primary/40" size={16} />
@@ -282,7 +286,7 @@ const AuthPage = ({ onNavigate }: { onNavigate: (page: Page) => void }) => (
               <div className="relative">
                 <input 
                   className="w-full bg-primary/5 border border-primary/30 text-primary p-4 focus:ring-0 focus:border-primary outline-none placeholder:text-primary/20 text-sm" 
-                  placeholder="****************" 
+                  defaultValue="SURGE_TRIAL_KEY_2026"
                   type="password"
                 />
                 <Key className="absolute right-4 top-1/2 -translate-y-1/2 text-primary/40" size={16} />
