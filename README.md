@@ -11,8 +11,10 @@
 
 ## 🌐 Live Demo
 
-**[→ sentinel-interface.vercel.app](https://symbeon-labs-suda-skills-protocol.vercel.app)**
-- Login: `AGENT_0x_SYMBEON_DEMO` / Key: `SURGE_TRIAL_KEY_2026`
+**[→ Try the Sentinel Interface](https://symbeon-labs-suda-skills-protocol.vercel.app)**  
+Interactive SkillVault terminal — explore skills, inspect URTN manifests, and simulate the x402 payment flow.
+
+> 💬 Demo access available via [GitHub Issues](https://github.com/symbeon-labs/suda-skills/issues)
 
 ---
 

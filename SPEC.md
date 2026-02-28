@@ -69,10 +69,11 @@ The core engine (**suda-sentinel**) is responsible for the **Blinded Financial V
 - **Sovereign**: Encrypted `.vault` on portable hardware anchors.
 - **On-chain**: Anchor hashes on SURGE network (Base-compatible L2).
 
-## 6. Demo Access
-Live interface: **https://symbeon-labs-suda-skills-protocol.vercel.app**
-- Agent ID: `AGENT_0x_SYMBEON_DEMO`
-- Signature Key: `SURGE_TRIAL_KEY_2026`
+## 6. Live Interface
+**[Sentinel Interface \u2192](https://symbeon-labs-suda-skills-protocol.vercel.app)**  
+Interactive SkillVault terminal for exploring URTN manifests and simulating the x402 payment flow.
+
+> Demo access: open an [Issue on GitHub](https://github.com/symbeon-labs/suda-skills/issues)
 
 ---
 *Status: PRODUCTION-READY ALPHA*  
