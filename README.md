@@ -12,7 +12,8 @@
 
 **suda-skills** is an OpenClaw plugin implementing the **URTN (Universal Registry & Automated-Tokenization Network)** — a deterministic framework for the cryptographic registration and cross-agent execution of autonomous cognitive modules.
 
-The system provides a high-performance orchestration layer for web-scale agentic infrastructure, ensuring sub-second latency in skill discovery and strict fiscal integrity via hardware-anchored seals.
+### 🌐 Official Sovereign Interface
+The ecosystem is accessible via the **[@SYMBEON_BOT](https://t.me/SYMBEON_BOT)** on Telegram, providing a multi-model agnostic interface (Gemini 1.5/3, Llama 3) for real-time protocol management.
 
 ---
 
