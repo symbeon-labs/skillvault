@@ -8,6 +8,8 @@
 [![OpenClaw Plugin](https://img.shields.io/badge/OpenClaw-Plugin-blueviolet)](https://github.com/openclaw)
 [![Symbeon Labs](https://img.shields.io/badge/Symbeon-Labs-0D0D0D?logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PC9zdmc+)](https://github.com/symbeon-labs)
 
+![URTN-Nexus Architecture](./assets/urtn_nexus_architecture.png)
+
 **suda-skills** is an OpenClaw plugin implementing the **URTN (Universal Registry & Automated-Tokenization Network)** — a deterministic framework for the cryptographic registration and cross-agent execution of autonomous cognitive modules.
 
 The system provides a high-performance orchestration layer for web-scale agentic infrastructure, ensuring sub-second latency in skill discovery and strict fiscal integrity via hardware-anchored seals.
@@ -87,15 +89,37 @@ See [`SPEC.md`](./SPEC.md) for the full protocol specification.
 
 ## 🛡️ Architecture
 
-```
-suda-skills (OpenClaw Plugin / TypeScript)
-    │
-    ├── URTNGenerator   → Generates skill manifests & SHA-256 hashes
-    ├── X402Handler     → Creates x402 payment requests
-    └── FiscalGuard     → Bridge to suda-sentinel (Rust) for permit issuance
+### System Overview
+
+```mermaid
+graph TD
+    A["👤 Architect / Developer"] -->|"/register-protocol"| B["OpenClaw Runtime"]
+    B --> C["URTN-Nexus Extension"]
+    C --> D["core.json (Manifest)"]
+    D --> E["Sovereign Registry\n(L1 Node + On-chain)"]
+
+    F["🤖 Consumer Node\n(Skill Requester)"] -->|"Discovery"| E
+    E -->|"L402 Payment Request"| G["L402 Handler"]
+    G -->|"$SURGE Transfer"| H["💳 Creator Node\n(80% Settlement)"]
+    G -->|"$SURGE Transfer"| I["⚖️ L0 Governance\n(10%)"]
+    G -->|"$SURGE Transfer"| J["🌐 Collective Fund\n(10%)"]
+    H --> K["✅ Execution permit issued"]
+
+    L["🧬 Sentinel Engine\n(Sovereign Validation)"] --- C
+    L -->|"Verifies Integrity"| D
+
+    style C fill:#1a1a2e,color:#00ffcc,stroke:#00ffcc
+    style D fill:#1a1a2e,color:#ffd700,stroke:#ffd700
+    style E fill:#1a1a2e,color:#00ffcc,stroke:#00ffcc
+    style G fill:#16213e,color:#ffd700,stroke:#ffd700
+    style L fill:#1a1a2e,color:#00ffcc,stroke:#00ffcc,stroke-dasharray: 5 5
 ```
 
-The **suda-sentinel** Rust core (separate repo) validates skill execution permits cryptographically before any payment is processed.
+### Component Breakdown
+
+- **URTN Generator** — Produces immutable SHA-256 identity hashes.
+- **L402 Handler** — Orchestrates atomic agent-to-agent settlement.
+- **suda-sentinel** — High-performance Rust engine for permit validation.
 
 ---
 
