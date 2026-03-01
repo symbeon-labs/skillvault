@@ -1,7 +1,7 @@
 # ⚡ Suda-Skills: Sovereign Skill Registry & Tokenization Network
 
 <a href="https://symbeon-labs-suda-skills-protocol.vercel.app" target="_blank">
-  <img src="./docs/suda_skills_cover_1772314522513.png" alt="Suda-Skills Protocol — Economic Primitive for Sovereign AI Agents" width="100%"/>
+  <img src="./docs/suda_skills_banner.png" alt="Suda-Skills Protocol — Economic Primitive for Sovereign AI Agents" width="100%"/>
 </a>
 
 > **AIs can now negotiate.**
