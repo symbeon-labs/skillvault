@@ -108,21 +108,59 @@ suda vault --sync
 ## 🛡️ Architecture
 
 ```mermaid
-graph TD
-    A["👤 Developer"] -->|"register"| B["OpenClaw Runtime"]
-    B --> C["URTN Registry"]
-    C --> D["core.json Manifest"]
-    D --> E["On-chain Index (SURGE)"]
+flowchart TB
+    subgraph LAYER_DEV["🧑‍💻 Layer 0 · Developer"]
+        DEV["Developer / Skill Creator"]
+        SDK["TypeScript SDK\n@symbeon/suda-skills"]
+        PLUGIN["openclaw.plugin.json\nOpenClaw Runtime"]
+    end
 
-    F["🤖 Consumer Agent"] -->|"Discovery"| E
-    E -->|"HTTP 402 Challenge"| G["x402 Handler (Rust)"]
-    G -->|"$SURGE Transfer"| H["💳 Creator (80%)"]
-    G -->|"$SURGE Transfer"| I["⚖️ Governance (10%)"]
-    G -->|"$SURGE Transfer"| J["🌐 Collective (10%)"]
-    H --> K["✅ Skill Executed"]
+    subgraph LAYER_IDENTITY["🔐 Layer 1 · URTN Identity"]
+        URTN["URTN Generator\nSHA-256 Hash"]
+        MANIFEST["core.json Manifest\nprotocol · identity · economics"]
+        REGISTRY["SkillVault Registry\nOn-chain Index"]
+    end
 
-    style C fill:#1a1a2e,color:#2dd4bf,stroke:#2dd4bf
-    style G fill:#16213e,color:#2dd4bf,stroke:#2dd4bf
+    subgraph LAYER_ECONOMY["⚡ Layer 2 · x402 Payment Protocol"]
+        ENDPOINT["Skill HTTP Endpoint\nPOST /execute-skill"]
+        CHALLENGE["HTTP 402 Challenge\nX-Payment-Request: {SURGE, chain_id}"]
+        HANDLER["x402 Handler\nRust · Axum · Tokio"]
+        PROOF["Payment Proof\nX-402-Payment-Proof: tx_hash"]
+    end
+
+    subgraph LAYER_CHAIN["🌐 Layer 3 · $SURGE Settlement"]
+        SURGE["$SURGE Network\nBase L2 Compatible"]
+        SPLIT_C["💳 Creator\n80%"]
+        SPLIT_G["⚖️ Governance\n10%"]
+        SPLIT_P["🌐 Collective Pool\n10%"]
+    end
+
+    subgraph LAYER_AGENT["🤖 Layer 4 · Consumer Agent"]
+        AGENT["AI Agent\nOpenClaw · LangChain · Custom"]
+        RESULT["✅ Skill Executed\nResult returned"]
+    end
+
+    DEV --> SDK --> PLUGIN
+    PLUGIN --> URTN --> MANIFEST --> REGISTRY
+
+    AGENT -->|"1. POST /execute-skill"| ENDPOINT
+    ENDPOINT -->|"2. HTTP 402"| CHALLENGE
+    CHALLENGE -->|"3. Pay on-chain"| SURGE
+    SURGE --> SPLIT_C & SPLIT_G & SPLIT_P
+    AGENT -->|"4. Retry + tx_hash"| HANDLER
+    HANDLER --> PROOF
+    PROOF -->|"5. Validate & Execute"| RESULT
+
+    REGISTRY -.->|"Skill Discovery"| AGENT
+
+    style LAYER_DEV fill:#0f172a,stroke:#2dd4bf,color:#94a3b8
+    style LAYER_IDENTITY fill:#0f172a,stroke:#2dd4bf,color:#94a3b8
+    style LAYER_ECONOMY fill:#0f172a,stroke:#f59e0b,color:#94a3b8
+    style LAYER_CHAIN fill:#0f172a,stroke:#2dd4bf,color:#94a3b8
+    style LAYER_AGENT fill:#0f172a,stroke:#2dd4bf,color:#94a3b8
+    style HANDLER fill:#1e3a2f,stroke:#2dd4bf,color:#2dd4bf
+    style SURGE fill:#1e3a2f,stroke:#2dd4bf,color:#2dd4bf
+    style CHALLENGE fill:#2d1e0f,stroke:#f59e0b,color:#f59e0b
 ```
 
 ---
