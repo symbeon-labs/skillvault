@@ -33,3 +33,6 @@ npm-debug.log*
 
 # Internal Sovereignty
 internal_secrets/
+
+# NotebookLM & presentation prep materials (internal only)
+notebooklm_bundle/
