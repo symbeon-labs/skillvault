@@ -66,10 +66,10 @@ sequenceDiagram
 
 ## 🦀 Tech Stack
 
-- **Backend:** Rust (Axum + Tokio) — sub-millisecond latency, memory-safe x402 middleware
+- **Backend:** `suda-sentinel-rs` (Rust + Tokio) — official high-performance fiscal validation gateway
 - **SDK:** TypeScript 5.0 — full type-safety, OpenClaw Plugin API
 - **Payments:** Ethers.js v6 — Base, Sepolia, $SURGE mainnet
-- **Security:** ZKP-ready validation, SHA-256 local node fingerprinting
+- **Security:** SHA-256 local node fingerprinting & URTN identity anchoring
 - **Frontend:** Sentinel Interface — Industrial Terminal UI deployed on Vercel
 
 ---
@@ -203,6 +203,7 @@ suda-skills/
 ├── index.ptbr.ts         # Portuguese localized version
 ├── x402_schema.ts        # X402 payment schema & types
 ├── urtn_generator.ts     # URTN identity hash generator
+├── suda-sentinel-rs/     # Official Rust Implementation (Sentinel)
 ├── src/
 │   └── blockchain.ts     # Wallet & Ethers.js utility
 ├── tests/
