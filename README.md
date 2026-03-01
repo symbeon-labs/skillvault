@@ -39,24 +39,27 @@ Interactive SkillVault terminal — explore skills, inspect URTN manifests, and 
 
 ## 🔄 X402 Payment Flow
 
-```
-Agent A                    SkillVault Server              $SURGE Network
-   │                             │                              │
-   │──── POST /execute-skill ───▶│                              │
-   │                             │                              │
-   │◀─── HTTP 402 ───────────────│                              │
-   │     X-Payment-Request:      │                              │
-   │     {amount: 2.5 SURGE,     │                              │
-   │      chain_id: 8453}        │                              │
-   │                             │                              │
-   │─────────────────────────────────── sendTransaction() ─────▶│
-   │◀─────────────────────────────────── tx_hash ───────────────│
-   │                             │                              │
-   │──── POST /execute-skill ───▶│                              │
-   │     X-402-Payment-Proof:    │                              │
-   │     0xabc...def             │                              │
-   │                             │                              │
-   │◀─── 200 OK + result ────────│                              │
+```mermaid
+sequenceDiagram
+    participant A as Agent A (Consumer)
+    participant S as Suda-Skills Server
+    participant C as $SURGE Chain (L2)
+
+    A->>S: 1. POST /execute-skill (No Proof)
+    Note over S: Check registry & availability
+    S-->>A: 2. HTTP 402 Payment Required
+    Note right of S: X-Payment-Request: {amount, chain_id, target}
+
+    A->>C: 3. sendTransaction($SURGE)
+    C-->>A: 4. tx_hash (Receipt)
+
+    A->>S: 5. POST /execute-skill (Retry)
+    Note right of A: X-402-Payment-Proof: tx_hash
+    
+    Note over S: Rust Handler verifies receipt
+    S->>S: 6. Atomic Split (80/10/10)
+    
+    S-->>A: 7. 200 OK + Execution Result
 ```
 
 ---
