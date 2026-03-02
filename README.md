@@ -1,6 +1,6 @@
 # ⚡ Suda-Skills: Sovereign Skill Registry & Tokenization Network
 
-<a href="https://symbeon-labs-suda-skills-protocol.vercel.app" target="_blank">
+<a href="https://suda-skills.vercel.app" target="_blank">
   <img src="./docs/suda_skills_banner.png" alt="Suda-Skills Protocol — Economic Primitive for Sovereign AI Agents" width="100%"/>
 </a>
 
@@ -9,13 +9,13 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue.svg)](https://www.typescriptlang.org/)
-[![OpenClaw Plugin](https://img.shields.io/badge/OpenClaw-Plugin-blueviolet)](https://github.com/openclaw)
+[![OpenClaw Plugin](https://img.shields.io/badge/OpenClaw-Plugin-blueviolet)](https://github.com/open-claw)
 [![SURGE Network](https://img.shields.io/badge/$SURGE-Network-2dd4bf)](https://surge.network)
 [![Symbeon Labs](https://img.shields.io/badge/Symbeon-Labs-0D0D0D)](https://github.com/symbeon-labs)
 
 ## 🌐 Live Demo
 
-**[→ Try the Sentinel Interface](https://symbeon-labs-suda-skills-protocol.vercel.app)**  
+**[→ Try the Sentinel Interface](https://suda-skills.vercel.app)**  
 Interactive SkillVault terminal — explore skills, inspect URTN manifests, and simulate the x402 payment flow.
 
 > 💬 Demo access available via [GitHub Issues](https://github.com/symbeon-labs/suda-skills/issues)
@@ -70,7 +70,7 @@ sequenceDiagram
 - **SDK:** TypeScript 5.0 — full type-safety, OpenClaw Plugin API
 - **Payments:** Ethers.js v6 — Base, Sepolia, $SURGE mainnet
 - **Security:** SHA-256 local node fingerprinting & URTN identity anchoring
-- **Frontend:** Sentinel Interface — Industrial Terminal UI deployed on Vercel
+- **Frontend:** Sentinel Interface — Industrial Terminal UI deployed on [Vercel](https://suda-skills.vercel.app)
 
 ---
 
@@ -208,6 +208,7 @@ suda-skills/
 │   └── blockchain.ts     # Wallet & Ethers.js utility
 ├── tests/
 │   └── agent_x402.test.ts # Integration test suite
+├── docs/                 # Sovereign Documentation Hub (Root Purified)
 └── assets/interface/     # Sentinel Interface (Vite + React)
 ```
 
